@@ -1,17 +1,40 @@
-# travel
+# Travel Agency App
 
-A new Flutter project.
+A Flutter travel booking application built with Material 3.
 
-## Getting Started
+## Architecture Decisions
 
-This project is a starting point for a Flutter application.
+### 1. State Management
+- **Local Component State**: Managed via `StatefulWidget` and `setState` for transient form inputs, validation state, and date selection in `BookingFormScreen`.
+- **Immutable Data Transfer**: Data flows immutably via `BookingData` model instances passed through screen constructors.
 
-A few resources to get you started if this is your first Flutter project:
+### 2. Routing & Navigation
+- **Navigator 1.0 (Imperative Routing)**: Uses `Navigator.push` with `MaterialPageRoute` for screen transitions between `BookingFormScreen` and `BookingSummaryScreen`.
+- **Dialog & Stack Pops**: Modals handle contextual completion using `Navigator.pop`.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+### 3. File & Directory Structure
+```
+lib/
+├── main.dart                   # Entry point & app Theme configuration
+├── models/
+│   └── booking_data.dart       # Immutable domain data model
+└── screens/
+    ├── booking_form_screen.dart    # Form input screen
+    └── booking_summary_screen.dart # Ticket summary screen
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 4. Layout & Responsiveness
+- **Mobile-First Layout**: Fully responsive layout optimized down to 375px screen widths.
+- **Overflow Prevention**: Leverages `Expanded`, `Flexible`, and `FittedBox` wrappers around flex rows to eliminate `RenderFlex` overflow errors on smaller viewports.
+
+## Running the App
+
+```bash
+flutter run
+```
+
+## Running Tests
+
+```bash
+flutter test
+```

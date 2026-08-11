@@ -13,7 +13,7 @@ void main() {
     await tester.pumpWidget(const TravelBookingApp());
 
     // Verify form title and elements are present.
-    expect(find.text('Wanderlust Travel'), findsOneWidget);
+    expect(find.text('Travel Agency'), findsOneWidget);
     expect(find.text('Traveler Name'), findsOneWidget);
     expect(find.text('Destination'), findsOneWidget);
     expect(find.text('Preferred Travel Date'), findsOneWidget);
@@ -93,6 +93,6 @@ void main() {
     await tester.pumpAndSettle();
 
     // Back at form screen
-    expect(find.text('Wanderlust Travel'), findsOneWidget);
+    expect(find.text('Travel Agency'), findsOneWidget);
   });
 }

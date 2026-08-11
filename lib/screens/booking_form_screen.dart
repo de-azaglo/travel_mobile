@@ -131,7 +131,7 @@ class _BookingFormScreenState extends State<BookingFormScreen> {
             flexibleSpace: FlexibleSpaceBar(
               titlePadding: const EdgeInsets.only(left: 20, bottom: 16),
               title: const Text(
-                'Wanderlust Travel',
+                'Travel Agency',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -159,46 +159,6 @@ class _BookingFormScreenState extends State<BookingFormScreen> {
                         Icons.flight_takeoff_rounded,
                         size: 200,
                         color: Colors.white.withValues(alpha: 0.08),
-                      ),
-                    ),
-                    Positioned(
-                      left: 20,
-                      bottom: 50,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 4,
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.white.withValues(alpha: 0.2),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: const Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(
-                                  Icons.explore_outlined,
-                                  color: Colors.amberAccent,
-                                  size: 14,
-                                ),
-                                SizedBox(width: 4),
-                                Text(
-                                  'BOOK YOUR NEXT ADVENTURE',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
                       ),
                     ),
                   ],

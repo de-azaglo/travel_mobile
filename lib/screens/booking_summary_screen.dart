@@ -101,42 +101,52 @@ class BookingSummaryScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 4,
-                              ),
-                              decoration: BoxDecoration(
-                                color: const Color(0xFF10B981).withValues(alpha: 0.2),
-                                border: Border.all(color: const Color(0xFF34D399)),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: const Row(
-                                children: [
-                                  CircleAvatar(
-                                    radius: 3,
-                                    backgroundColor: Color(0xFF34D399),
-                                  ),
-                                  SizedBox(width: 6),
-                                  Text(
-                                    'READY TO BOOK',
-                                    style: TextStyle(
-                                      color: Color(0xFF34D399),
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold,
-                                      letterSpacing: 1,
+                            Flexible(
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                  vertical: 4,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF10B981).withValues(alpha: 0.2),
+                                  border: Border.all(color: const Color(0xFF34D399)),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: const Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    CircleAvatar(
+                                      radius: 3,
+                                      backgroundColor: Color(0xFF34D399),
                                     ),
-                                  ),
-                                ],
+                                    SizedBox(width: 6),
+                                    Flexible(
+                                      child: Text(
+                                        'READY TO BOOK',
+                                        style: TextStyle(
+                                          color: Color(0xFF34D399),
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                            Text(
-                              'REF: ${booking.bookingReference}',
-                              style: TextStyle(
-                                color: Colors.white.withValues(alpha: 0.8),
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 0.5,
+                            const SizedBox(width: 8),
+                            Flexible(
+                              child: Text(
+                                'REF: ${booking.bookingReference}',
+                                style: TextStyle(
+                                  color: Colors.white.withValues(alpha: 0.8),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 0.5,
+                                ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
@@ -145,61 +155,72 @@ class BookingSummaryScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'ORIGIN',
-                                  style: TextStyle(
-                                    color: Colors.white54,
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w600,
+                            const Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'ORIGIN',
+                                    style: TextStyle(
+                                      color: Colors.white54,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(height: 2),
-                                Text(
-                                  'Current Location',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
+                                  SizedBox(height: 2),
+                                  Text(
+                                    'Current Location',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
-                                ),
-                              ],
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                color: Colors.white.withValues(alpha: 0.15),
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Icon(
-                                Icons.flight_takeoff_rounded,
-                                color: Colors.white,
-                                size: 22,
+                                ],
                               ),
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                const Text(
-                                  'DESTINATION',
-                                  style: TextStyle(
-                                    color: Colors.white54,
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Container(
+                                padding: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: Colors.white.withValues(alpha: 0.15),
+                                  shape: BoxShape.circle,
                                 ),
-                                const SizedBox(height: 2),
-                                Text(
-                                  booking.destination,
-                                  style: const TextStyle(
-                                    color: Colors.amberAccent,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                child: const Icon(
+                                  Icons.flight_takeoff_rounded,
+                                  color: Colors.white,
+                                  size: 22,
                                 ),
-                              ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  const Text(
+                                    'DESTINATION',
+                                    style: TextStyle(
+                                      color: Colors.white54,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 2),
+                                  Text(
+                                    booking.destination,
+                                    style: const TextStyle(
+                                      color: Colors.amberAccent,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -274,16 +295,19 @@ class BookingSummaryScreen extends StatelessWidget {
                           ),
                           child: Column(
                             children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: List.generate(
-                                  28,
-                                  (index) => Container(
-                                    width: (index % 3 == 0) ? 4 : 2,
-                                    height: 40,
-                                    color: (index % 5 == 0)
-                                        ? Colors.grey.shade400
-                                        : const Color(0xFF1E293B),
+                              FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: List.generate(
+                                    28,
+                                    (index) => Container(
+                                      width: (index % 3 == 0) ? 4 : 2,
+                                      height: 40,
+                                      color: (index % 5 == 0)
+                                          ? Colors.grey.shade400
+                                          : const Color(0xFF1E293B),
+                                    ),
                                   ),
                                 ),
                               ),
